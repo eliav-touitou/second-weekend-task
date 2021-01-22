@@ -110,13 +110,15 @@ const data = [
     tasksFinished: 25,
   },
 ];
-
+/*a loop to find the total time spent learning,
+ the percentage of done tasks out of the given ones, and to convert date to time*/
 for (const obj of data) {
   obj.totalTime = Math.abs(obj.finishedAt - obj.startedAt) / 36e5;
   obj.percentDone = (obj.tasksFinished / obj.tasksGiven) * 100;
   obj.startedAt = obj.startedAt.toLocaleTimeString();
   obj.finishedAt = obj.finishedAt.toLocaleTimeString();
 }
+
 const heads = [
   "Topic:",
   "Started At:",
@@ -129,10 +131,12 @@ const heads = [
 
 document.write(`<table>`);
 
+//creating table head
 for (let title of heads) {
   document.write(`<th class = "info" >  ${title} </th>`);
 }
 
+//creating different time and percent zones to color them by their classes
 for (let i = 0; i < data.length; i++) {
   let classNameTime;
   let classNameTask;
@@ -153,6 +157,7 @@ for (let i = 0; i < data.length; i++) {
       classNameTask = "good";
     }
 
+    //creating  the table rows and inserting the data of the objects array inside them
     document.write(`<tr>
         <th class = "topic"> ${data[i].topic} </th> 
            <td> ${data[i].startedAt} </td>
