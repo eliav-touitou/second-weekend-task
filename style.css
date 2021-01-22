@@ -1,3 +1,7 @@
+body {
+  font-family: cursive;
+  color: #000000;
+}
 table {
   width: 95vw;
   height: 100vh;
@@ -10,6 +14,7 @@ th {
 td {
   border-radius: 10%;
   border: solid black;
+  background: linear-gradient(to right, #666d72, #666666);
 }
 .quick {
   background: linear-gradient(to right, #84f107, #e5ffd0);
@@ -21,11 +26,11 @@ td {
   background: linear-gradient(to right, #ff0000, #e5ffd0);
 }
 .good {
-  background: linear-gradient(to right, #4114bb, #9a9eb1);
+  background: linear-gradient(to right, #4114bb, #6a76b1);
 }
 .mid {
-  background: linear-gradient(to right, #1ca5b8, #62a1ac);
+  background: linear-gradient(to right, #04aac7, #73c4d3);
 }
 .bad {
-  background: linear-gradient(to right, #c3ccd3, #666666);
+  background: linear-gradient(to right, #80c4c4, #e6fffe);
 }
