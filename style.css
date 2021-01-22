@@ -1,0 +1,31 @@
+table {
+  width: 95vw;
+  height: 100vh;
+  text-align: center;
+}
+th {
+  background: linear-gradient(to right, #000000, #4d4444);
+  color: #ffffff;
+}
+td {
+  border-radius: 10%;
+  border: solid black;
+}
+.quick {
+  background: linear-gradient(to right, #84f107, #e5ffd0);
+}
+.avg {
+  background: linear-gradient(to right, #f3ef03, #e5ffd0);
+}
+.slow {
+  background: linear-gradient(to right, #ff0000, #e5ffd0);
+}
+.good {
+  background: linear-gradient(to right, #4114bb, #9a9eb1);
+}
+.mid {
+  background: linear-gradient(to right, #1ca5b8, #62a1ac);
+}
+.bad {
+  background: linear-gradient(to right, #c3ccd3, #666666);
+}
