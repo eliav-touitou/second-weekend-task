@@ -6,6 +6,7 @@ table {
   width: 95vw;
   height: 100vh;
   text-align: center;
+  position: fixed;
 }
 th {
   background: linear-gradient(to right, #000000, #4d4444);
