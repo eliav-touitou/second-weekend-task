@@ -4,7 +4,7 @@ const data = [
 
     startedAt: new Date("2020-01-01:09:30"),
 
-    finishedAt: new Date("2020-01-01:12:45"),
+    finishedAt: new Date("2020-01-01:12:30"),
 
     tasksGiven: 20,
 
