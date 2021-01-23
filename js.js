@@ -115,8 +115,14 @@ const data = [
 for (const obj of data) {
   obj.totalTime = Math.abs(obj.finishedAt - obj.startedAt) / 36e5;
   obj.percentDone = (obj.tasksFinished / obj.tasksGiven) * 100;
-  obj.startedAt = obj.startedAt.toLocaleTimeString();
-  obj.finishedAt = obj.finishedAt.toLocaleTimeString();
+  obj.startedAt = obj.startedAt.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  obj.finishedAt = obj.finishedAt.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 }
 
 const heads = [
