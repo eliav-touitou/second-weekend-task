@@ -111,7 +111,7 @@ const data = [
   },
 ];
 /*a loop to find the total time spent learning,
- the percentage of done tasks out of the given ones, and to convert date to time*/
+//  the percentage of done tasks out of the given ones, and to convert date to time*/
 for (const obj of data) {
   obj.totalTime = Math.abs(obj.finishedAt - obj.startedAt) / 36e5;
   obj.percentDone = (obj.tasksFinished / obj.tasksGiven) * 100;
@@ -125,6 +125,10 @@ for (const obj of data) {
   });
 }
 
+//creating the table tag
+const table = document.createElement("table");
+document.body.append(table);
+
 const heads = [
   "Topic:",
   "Started At:",
@@ -135,44 +139,50 @@ const heads = [
   "Task finished % :",
 ];
 
-document.write(`<table>`);
-
-//creating table head
+//loop to create the table head using "heads" array
 for (let title of heads) {
-  document.write(`<th class = "info" >  ${title} </th>`);
+  let tableTitle = document.createElement("th");
+  tableTitle.innerText = title;
+  table.append(tableTitle);
 }
 
-//creating different time and percent zones to color them by their classes
-for (let i = 0; i < data.length; i++) {
-  let classNameTime;
-  let classNameTask;
-  {
-    if (data[i].totalTime < 2.5) {
-      classNameTime = "quick";
-    } else if (data[i].totalTime <= 3.5) {
-      classNameTime = "avg";
-    } else {
-      classNameTime = "slow";
-    }
+//loop that creates the rows and insert the data from the "data" array inside it
+for (const obj of data) {
+  const tableRow = document.createElement("tr");
+  table.append(tableRow);
 
-    if (data[i].percentDone < 65) {
-      classNameTask = "bad";
-    } else if (data[i].percentDone < 80) {
-      classNameTask = "mid";
-    } else {
-      classNameTask = "good";
-    }
+  let topic = document.createElement("th");
+  topic.innerText = obj.topic;
+  tableRow.append(topic);
 
-    //creating  the table rows and inserting the data of the objects array inside them
-    document.write(`<tr>
-        <th class = "topic"> ${data[i].topic} </th> 
-           <td> ${data[i].startedAt} </td>
-            <td> ${data[i].finishedAt}</td>
-            <td class = "${classNameTime}"> ${data[i].totalTime} </td>
-            <td> ${data[i].tasksGiven}</td>
-            <td> ${data[i].tasksFinished} </td>
-            <td class = "${classNameTask}"> ${data[i].percentDone} % </td>
-            </tr>`);
-  }
+  let startedAt = document.createElement("td");
+  startedAt.innerText = obj.startedAt;
+  tableRow.append(startedAt);
+
+  let finishedAt = document.createElement("td");
+  finishedAt.innerText = obj.finishedAt;
+  tableRow.append(finishedAt);
+
+  let totalTime = document.createElement("td");
+  totalTime.innerText = obj.totalTime;
+  //assigning classes to each time zone to color each one
+  totalTime.className =
+    obj.totalTime < 2.5 ? "quick" : obj.totalTime <= 3.5 ? "avg" : "slow";
+  tableRow.append(totalTime);
+
+  let tasksGiven = document.createElement("td");
+  tasksGiven.innerText = obj.tasksGiven;
+  tableRow.append(tasksGiven);
+
+  let tasksFinished = document.createElement("td");
+  tasksFinished.innerText = obj.tasksFinished;
+  tableRow.append(tasksFinished);
+
+  let percentDone = document.createElement("td");
+  percentDone.innerText = obj.percentDone + "%";
+  //assigning classes to each percent zone to color each one
+  percentDone.className =
+    obj.percentDone < 65 ? "bad" : obj.percentDone < 80 ? "mid" : "good";
+  console.log(obj.percentDone);
+  tableRow.append(percentDone);
 }
-document.write(`</table>`);
